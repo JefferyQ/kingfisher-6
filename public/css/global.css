@@ -1,0 +1,380 @@
+/*
+	Reset the font size so we can use rems
+*/	
+html, body { margin:0; padding:0; border:0; }
+html {font-size:62.5%;}
+
+/*
+	Define HTML elements
+*/
+body {
+	background: #EE62B6 url(../images/bg.png) repeat-x top left;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-size: 1.4rem;
+	color: #906EA9;
+}
+h1 {
+	font-weight: normal;
+	margin-top: 0px;
+}
+h2 {
+	font-weight: normal;
+	font-size: 25px;
+	font-size: 2.5ems;
+	margin-top: 10px;
+}
+h3 {
+	
+}
+a {
+	color: #EE62B6;
+}
+a:hover {
+	color: #F8BEE1;
+}
+a:visited {
+	
+}
+a.noUnderline {
+	text-decoration: none;
+}
+th,td {
+	padding: 5px;
+}
+
+/*
+	Floats, clears and overflows
+*/
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.cl {
+	clear: left;
+}
+.cr {
+	clear: right;
+}
+.cb {
+	clear: both;
+}
+.overflow {
+	overflow: auto;
+}
+
+/*
+	Generic styles
+*/
+.centre {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.greyBox {
+	background: #EEE;
+	border: solid 1px #999;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 5px #666;
+	-webkit-box-shadow: 0px 0px 5px #666;
+	box-shadow: 0px 0px 5px #666;
+	margin-top: 35px;
+	padding: 10px;
+}
+.capitalise {
+	text-transform: uppercase;
+}
+.block {
+	display: block;
+}
+.box {
+	padding: 10px;
+	width: 95%;
+	font-weight: bold;
+	border-radius: 10px;
+}
+.successBox {
+	color: #83C500;
+	border: solid 2px #83C500;
+	background: #DAEDB2;
+}
+.leftCol {
+	width: 80px;
+	display: block;
+	border: dashed 1px #000;
+}
+
+/* 
+	Nav Styles 
+*/
+#entryList {
+	width: 220px;
+	clear: both;
+}
+#entryList ul {
+	margin: 0px;
+	margin-top: 30px;
+	padding: 0px;
+}
+#entryList li {
+	background: url(../images/image-sprite.png) no-repeat;
+	background-position: -140px -207px;
+	width: 207px;
+	height: 27px;
+	list-style-type: none;
+	padding-top: 10px;
+	padding-left: 15px;
+	margin-bottom: 15px;
+}
+#entryList li:hover {
+	background-position: -140px -246px;
+}
+#entryList li:active {
+	background-position: -140px -285px;
+}
+#entryList #selected {
+	background-position: -370px -207px;
+}
+#entryList #selected:hover {
+	background-position: -370px -246px;
+}
+#entryList #selected:active {
+	background-position: -370px -285px;
+}
+#entryList li a {
+	color: #FFF;
+	font-size: 14px;
+	font-size: 1.4rems;
+	display: block;
+	text-decoration: none;
+}
+
+/* 
+	Form Styles 
+*/
+label {
+	color: #EE62B6;
+	font-weight: bold;
+}
+.textInput {
+	width: 330px;
+	background: #FFF;
+	border: solid 1px #666;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding: 10px;
+	font-size: 12px;
+	font-size: 1.2rems;
+}
+.textArea {
+	height: 100px;
+}
+.textInputBtn {
+	background: url(../images/image-sprite.png) no-repeat;
+	background-position: -234px -434px;
+	border: none;
+	width: 386px;
+	height: 29px;
+	font-size: 12px;
+	font-size: 1.2rems;
+	text-align: left;
+	text-indent: 10px;
+	padding-top: 15px;
+}
+.textInputBtn a {
+	padding-top: 10px;	
+}
+.selectInput {
+	width: 385px;
+	border: solid 1px #666;
+	border-radius: 5px;
+	background: #FFF;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+option {
+	font-size: 12px;
+	font-size: 1.2rems;
+}
+
+/* 
+	Generic Colours
+*/
+.grey {
+	color: #666;	
+}
+.darkPink {
+	color: #EE62B6;
+}
+.red {
+	color: #900;
+}
+.green {
+	color: #83C500;	
+}
+
+/* 
+	Buttons 
+*/
+.bigPinkBtn,
+.bigPinkBtnBackText,
+.bigPinkBtnText {
+	background: url(../images/image-sprite.png) no-repeat;
+	background-position: 0px -206px;
+	width: 136px;
+	height: 48px;
+	display: block;
+	border: none;
+	color: #FFF;
+	font-size: 18px;
+	font-size: 1.8rems;
+	text-align: left;
+	text-indent: 14px;
+	margin-bottom: 10px;
+}
+.bigPinkBtnBackText {
+	background-position: -485px -8px;
+}
+.bigPinkBtn:hover,
+.bigPinkBtnText:hover {
+	background-position: 0px -252px;
+}
+.bigPinkBtn:active,
+.bigPinkBtnText:active {
+	background-position: 0px -298px;
+}
+.bigPinkBtnBackText:hover {
+	background-position: -485px -54px;
+}
+.bigPinkBtnBackText:active {
+	background-position: -485px -100px;
+}
+.bigPinkBtnText a, 
+.bigPinkBtnBackText a,
+.smlButton a {
+	color: #FFF;
+	float: left;
+	padding-top: 12px;
+	text-decoration: none;
+}
+.bigPinkBtnBackText a {
+	text-indent: 30px;	
+}
+.smlButton a {
+	padding-top: 6px;	
+}
+.smlButton {
+	background: url(../images/image-sprite.png) no-repeat;
+	background-position: 0px -377px;
+	width: 57px;
+	height: 22px;
+	display: block;
+	border: none;
+	color: #FFF;
+	font-size: 10px;
+	font-size: 1rems;
+	padding-left: 9px;
+	margin-left: 15px;
+}
+.smlButton:hover {
+	background-position: 0px -411px;
+}
+.smlButton:active {
+	background-position: 0px -445px;
+}
+
+/* 
+	Messages 
+*/
+.error, 
+.success {
+	width: 90%;
+	margin: auto;
+	padding: 5px;
+	text-align: center;
+}
+.error {
+	border: solid 1px #900;
+	background: #F1E6E5;
+	color: #900;
+}
+
+/* 
+	Grid elements 
+*/
+.grid2 {
+	width: 50%;	
+}
+
+/*
+	Elements
+*/
+#holder {
+	margin: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #FFF;
+	border: solid 3px #CCC;
+	border-radius: 5px;
+	padding: 20px;
+	width: 820px;
+	min-height: 500px;
+}
+#largeLogo {
+	background: url(../images/image-sprite.png) no-repeat;
+	width: 350px;
+	height: 110px;
+}
+#smallLogo {
+	background: url(../images/image-sprite.png) no-repeat;
+	background-position: 0px -122px;
+	width: 222px;
+	height: 66px;
+}
+#login {
+	width: 360px;
+	padding: 30px;
+	padding-bottom: 10px;
+}
+#home, #addCity {
+	width: 390px;
+	margin-top: 100px;
+	padding-bottom: 30px;
+	padding: 30px;
+}
+#addCity {
+	width: 360px;
+}
+#entryForm, 
+#entryListView {
+	width: 570px;
+	margin-top: 30px;
+}
+#entryListView {
+	width: 550px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.entry {
+	padding-bottom: 15px;
+	width: 520px;
+}
+.entryImg {
+	max-width: 180px;
+	margin-top: 20px;
+	border: solid 1px #333;
+}
+hr {
+	border-bottom: solid 1px #6C378B;
+}
+.entryContent {
+	width: 320px;
+}
+.offerDates {
+	width: 120px;
+}
+.offerContent {
+	width: 400px;
+}
