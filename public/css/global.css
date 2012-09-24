@@ -110,8 +110,7 @@ th,td {
 	Nav Styles 
 */
 #entryList {
-	width: 220px;
-	clear: both;
+	width: 222px;
 }
 #entryList ul {
 	margin: 0px;
@@ -214,7 +213,6 @@ option {
 .green {
 	color: #83C500;	
 }
-
 /* 
 	Buttons 
 */

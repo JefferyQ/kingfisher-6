@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="public/css/global.css" />
-<title>Kingfisher Media - Content Management</title>
+<title>New Kingfisher Media - Content Management</title>
 <script language="javascript" type="text/javascript" src="public/js/jQuery.min.js"></script>
 <script language="javascript" type="text/javascript" src="public/js/Modernizr2-custom.js"></script>
 </head>
