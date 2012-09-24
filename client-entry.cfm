@@ -59,7 +59,7 @@ $(document).ready(function() {
 			
 			// Loop through the data and extract the data
 			for (var i=0; i<data.DATA.DATA.length; i++) {		
-				var option = '<option value="' + data.DATA.DATA[i][2] + '">' + data.DATA.DATA[i][4] + '</option>';
+				var option = '<option value="' + data.DATA.DATA[i][2] + '">' + data.DATA.DATA[i][3] + '</option>';
 				$("#scID").append(option);
 			}
 			
