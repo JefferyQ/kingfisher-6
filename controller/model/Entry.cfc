@@ -143,6 +143,7 @@
 					<!--- Send an email off for authorisation --->
 					<cfmail to="colin@kingfishermedia.co.uk" 
 							cc="matthew@kingfishermedia.co.uk" 
+							bcc="andy@raiseatree.co.uk"
 							from="no-reply@kingfishercontent.co.uk" 
 							subject="#entry.city_name# Listing Received - #ARGUMENTS.title#" 
 							replyto="#entry.email#" 
@@ -192,7 +193,7 @@
 					<cfset rtn.result = false>
 					<cfset rtn.message = 'Sorry - an unknown error occurred, please try again (note - we have received notification about this issue)'>
 					
-					<cfmail to="andy@raiseatree.co.uk"
+					<cfmail cc="andy@raiseatree.co.uk"
 							from="no-reply@kingfishercontent.co.uk" 
 							subject="Error - Kingfisher Content" 
 							server="smtp.gmail.com" port="587" usetls="true" 
