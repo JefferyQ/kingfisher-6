@@ -53,7 +53,7 @@
 					<cfset rtn.result = false>
 					<!---<cfset rtn.message = 'Sorry - there was an error uploading your photo - please only upload JPEG files (min-width 640px in landscape format)'>--->
 					<cfset rtn.message = 'Sorry - there was an error uploading your photo - #cfcatch.message#'>
-					<cfmail to="andy@raiseatree.co.uk" from="no-reply@kingfishercontent.co.uk" subject="Error Adding Listing" server="localhost" username="no-reply@kingfishercontent.co.uk" password="raiseatree12" type="html">
+					<cfmail to="matthew@kingfishercontent.co.uk" bcc="andy@raiseatree.co.uk" from="no-reply@kingfishercontent.co.uk" subject="Error Adding Listing" server="smtp.gmail.com" useTLS="true" port="587" username="hello@raiseatree.co.uk" password="manutd88" type="html">
 						<cfoutput>
 							<p><strong>Error Received on Client Listing Page</strong></p>
 							<hr/>
@@ -146,9 +146,9 @@
 							from="no-reply@kingfishercontent.co.uk" 
 							subject="#entry.city_name# Listing Received - #ARGUMENTS.title#" 
 							replyto="#entry.email#" 
-							server="localhost" 
-							username="no-reply@kingfishercontent.co.uk" 
-							password="raiseatree12" type="html">
+							server="smtp.gmail.com" port="587" usetls="true" 
+							username="hello@raiseatree.co.uk" 
+							password="manutd88" type="html">
 						
 						<p>Listing received through Kingfishercontent.co.uk - Details Below:</p>
 						<p>---</p>
@@ -195,9 +195,9 @@
 					<cfmail to="andy@raiseatree.co.uk"
 							from="no-reply@kingfishercontent.co.uk" 
 							subject="Error - Kingfisher Content" 
-							server="localhost" 
-							username="no-reply@kingfishercontent.co.uk" 
-							password="raiseatree12" type="html">
+							server="smtp.gmail.com" port="587" usetls="true" 
+							username="hello@raiseatree.co.uk" 
+							password="manutd88" type="html">
 					
 						<cfdump var="#cfcatch#" label="Catch">
 						<cfdump var="#ARGUMENTS#" label="Arguments">
