@@ -462,6 +462,13 @@
 			</cfif>
 		</cfquery>
 		
+		<!--- Loop through the query and set the offer_code equal to null if no query (to help legacy apps to avoid showing offer available) --->
+		<cfloop query="rsGetEntries">
+			<cfif rsGetEntries.offer_code EQ "">
+				<cfset QuerySetCell(rsGetEntries, "offer_code", "null", CurrentRow)>
+			</cfif>
+		</cfloop>
+		
 		<cfif rsGetEntries.RecordCount GT 0>
 			<cfset rtn.result = true>
 			<cfset rtn.message = 'Request OK'>
