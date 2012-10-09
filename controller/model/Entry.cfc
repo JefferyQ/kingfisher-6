@@ -143,7 +143,6 @@
 					<!--- Send an email off for authorisation --->
 					<cfmail to="colin@kingfishermedia.co.uk" 
 							cc="matthew@kingfishermedia.co.uk" 
-							bcc="andy@raiseatree.co.uk"
 							from="no-reply@kingfishercontent.co.uk" 
 							subject="#entry.city_name# Listing Received - #ARGUMENTS.title#" 
 							replyto="#entry.email#" 
