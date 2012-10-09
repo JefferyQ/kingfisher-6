@@ -53,7 +53,7 @@
 					<cfset rtn.result = false>
 					<!---<cfset rtn.message = 'Sorry - there was an error uploading your photo - please only upload JPEG files (min-width 640px in landscape format)'>--->
 					<cfset rtn.message = 'Sorry - there was an error uploading your photo - #cfcatch.message#'>
-					<cfmail to="matthew@kingfishercontent.co.uk" bcc="andy@raiseatree.co.uk" from="no-reply@kingfishercontent.co.uk" subject="Error Adding Listing" server="smtp.gmail.com" useTLS="true" port="587" username="hello@raiseatree.co.uk" password="manutd88" type="html">
+					<cfmail to="matthew@kingfishermedia.co.uk" bcc="andy@raiseatree.co.uk" from="no-reply@kingfishercontent.co.uk" subject="Error Adding Listing" server="smtp.gmail.com" useTLS="true" port="587" username="hello@raiseatree.co.uk" password="manutd88" type="html">
 						<cfoutput>
 							<p><strong>Error Received on Client Listing Page</strong></p>
 							<hr/>

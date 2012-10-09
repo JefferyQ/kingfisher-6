@@ -49,7 +49,7 @@
 					<cfloop query="obj.data">
 						<tr>
 							<td>#obj.data.sub_category_name#</td>
-							<td><a href="manage-categories.cfm?cmd=DeleteSubCat&catID=#URL.catID#&scID=#obj.data.scID#" class="confirmDelete">Delete</a></td>
+							<td><a href="manage-categories.cfm?cmd=DeleteSubCat&catID=#URL.catID#&scID=#obj.data.scID#&apitoken=Raiseatree12" class="confirmDelete">Delete</a></td>
 						</tr>
 					</cfloop>
 				</table>
