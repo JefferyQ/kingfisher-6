@@ -10,6 +10,7 @@
 		<cfargument name="img" type="string" required="no">
 		<cfargument name="APIToken" type="string" required="no">
 		<cfargument name="EntryType" type="string" required="no">
+		<cfargument name="ordernumber" type="any" required="no">
 		
 		<cfsetting requesttimeout="600">
 		
@@ -67,6 +68,9 @@
 							<p><strong>Telephone</strong><br />#ARGUMENTS.phone#</p>
 							<p><strong>Email</strong><br />#ARGUMENTS.email#</p>
 							<p><strong>Website</strong><br />#ARGUMENTS.website#</p>
+							<cfif IsDefined("ARGUMENTS.offernumber") AND ARGUMENTS.offernumber GT ''>
+								<p><strong>Website</strong><br />#ARGUMENTS.website#</p>
+							</cfif>
 						</cfoutput>
 					</cfmail>
 					<cfset StructAppend(rtn, ARGUMENTS)>
@@ -87,7 +91,7 @@
 			
 				<!--- Now add the data to the db --->
 				<cfquery name="rsAdd" datasource="#Application.DataSource#" result="newEntry" timeout="600">
-					INSERT INTO entries (cID,catID,scID,title,body,latitude,longitude,web,email,phone,img,postcode,enabled) VALUES (
+					INSERT INTO entries (cID,catID,scID,title,body,latitude,longitude,web,email,phone,img,postcode,enabled,ordernumber) VALUES (
 						<cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.cID#">,
 						<cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.catID#">,
 						<cfif IsDefined("ARGUMENTS.scID")>
@@ -124,7 +128,12 @@
 						<cfelse>
 							'',
 						</cfif>
-						<cfqueryparam cfsqltype="cf_sql_integer" value="#enabled#">
+						<cfqueryparam cfsqltype="cf_sql_integer" value="#enabled#">, 
+						<cfif IsDefined("ARGUMENTS.ordernumber")>
+							<cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.ordernumber#">
+						<cfelse>
+							''
+						</cfif>
 					);
 				</cfquery>
 				
@@ -152,6 +161,9 @@
 						
 						<p>Listing received through Kingfishercontent.co.uk - Details Below:</p>
 						<p>---</p>
+						
+						<p><strong>Order Number</strong><br />
+						#entry.ordernumber#</p>
 						
 						<p><strong>City</strong><br />
 						#entry.city_name#</p>

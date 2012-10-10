@@ -87,6 +87,14 @@ $(document).ready(function() {
 			<cfform name="frmAddEntry" method="post" id="entryForm" class="cb greyBox overflow" enctype="multipart/form-data">
 				<p><img src="public/images/req.png"> Denotes a required field</p>
 				<p>
+					<label>Order Number<img src="public/images/req.png"></label><br/>
+					<cfif IsDefined("SESSION.rtn.ordernumber")>
+						<cfinput type="text" name="ordernumber" placeholder="Order Number" class="textInput darkPink" value="#SESSION.rtn.ordernumber#" required="true" message="Please enter an order number" />
+					<cfelse>
+						<cfinput type="text" name="ordernumber" placeholder="Order Number" class="textInput darkPink" required="true" message="Please enter an order number" />
+					</cfif>
+				</p>
+				<p>
 					<label>City or Region<img src="public/images/req.png"></label><br/>
 					<cfselect name="cID" class="textInput" query="cityList.data" display="city_name" value="cID"></cfselect>
 				</p>

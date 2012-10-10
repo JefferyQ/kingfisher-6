@@ -56,6 +56,7 @@
 					}
 					
 					case "ClientEntry" : {
+						
 						// Adds a new entry from the form submission
 						rtn = createObject("component","model.Entry").AddEntry(argumentCollection=data);
 						
