@@ -30,5 +30,6 @@
 		<li <cfif URL.catID EQ 5>id="selected"</cfif>><a href="view-offers.cfm?catID=5">Offers</a></li>
 		<li <cfif URL.catID EQ 6>id="selected"</cfif>><a href="view-entries.cfm?catID=6">Shopping</a></li>
 		<li <cfif URL.catID EQ 9>id="selected"</cfif>><a href="view-entries.cfm?catID=9">Sports</a></li>
+		<li <cfif URL.catID EQ 10>id="selected"</cfif>><a href="view-ads.cfm?catID=10">Manage Adverts</a></li>
 	</ul>
 </cfoutput>

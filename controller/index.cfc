@@ -20,6 +20,13 @@
 			//  Map out the routes through the application 
 			try {
 				switch (data.cmd) {
+					case "AddAd" : {
+						// Adds a new advert
+						rtn = createObject("component","model.Advert").Add(argumentCollection=data);
+						
+						break;
+					}
+					
 					case "AddCity" : {
 						// Adds a new city from the form submission
 						rtn = createObject("component","model.City").AddCity(data.ReturnFormat,data.city_name,data.APIToken);
@@ -63,6 +70,13 @@
 						break;
 					}
 					
+					case "DeleteAd" : {
+						// Delete an entry
+						rtn = createObject("component","model.Advert").Delete(argumentCollection=data);
+						
+						break;
+					}
+					
 					case "DeleteEntry" : {
 						// Delete an entry
 						rtn = createObject("component","model.Entry").DeleteEntry(argumentCollection=data);
@@ -80,6 +94,13 @@
 					case "DeleteSubCat" : {
 						// Adds a new city from the form submission
 						rtn = createObject("component","model.Entry").DeleteSubCat(argumentCollection=data);
+						
+						break;
+					}
+					
+					case "EditAd" : {
+						// Edits an entry
+						rtn = createObject("component","model.Advert").Edit(argumentCollection=data);
 						
 						break;
 					}
@@ -206,6 +227,15 @@
 						// Update the selected city in the session
 						SESSION.cID = data.cID;
 						
+						break;
+					}
+					
+					case "ViewAds" : {
+						/*
+							Forwards the user to the ad page
+						*/
+						rtn = createObject("component","model.Advert").View(argumentCollection=data); 
+					
 						break;
 					}
 					
