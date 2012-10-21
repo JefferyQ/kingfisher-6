@@ -182,14 +182,14 @@
 		</cfquery>
 		
 		<!--- Check if we found at least one record otherwise fill the query with the placeholder --->
-		<cfif rsGetAds.RecordCount EQ 0>
+		<cfif ARGUMENTS.ReturnFormat EQ 'JSON' AND rsGetAds.RecordCount EQ 0>
 			<cfset QueryAddRow(rsGetAds, 1)>
 			<cfset QuerySetCell(rsGetAds, 'adID', 'xxx', 1)>
 			<cfset QuerySetCell(rsGetAds, 'cID', 'xxx', 1)>
 			<cfset QuerySetCell(rsGetAds, 'catID', 'xxx', 1)>
 			<cfset QuerySetCell(rsGetAds, 'category_name', 'xxx', 1)>
-			<cfset QuerySetCell(rsGetAds, 'img', 'public/images/ad-placeholder.png', 1)>
-			<cfset QuerySetCell(rsGetAds, 'imgRetina', 'public/images/ad-placeholder2x.png', 1)>
+			<cfset QuerySetCell(rsGetAds, 'img', 'ad-placeholder.png', 1)>
+			<cfset QuerySetCell(rsGetAds, 'imgRetina', 'ad-placeholder2x.png', 1)>
 			<cfset QuerySetCell(rsGetAds, 'url', 'http://www.kingfishermedia.co.uk', 1)>
 		</cfif>
 		
