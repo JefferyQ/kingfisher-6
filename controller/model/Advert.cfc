@@ -16,11 +16,24 @@
 				<cfset uploadDir = ExpandPath("public/images/adverts")>
 				<cffile action="upload" destination="#uploadDir#" nameconflict="makeUnique" accept="image/jpg,image/jpeg,image/pjpeg,image/png,image/gif" filefield="img" result="fileUpload">
 				
-				<!--- Resize the image --->
-				<cfimage action="resize" source="#uploadDir#/#fileUpload.ServerFile#" destination="#uploadDir#/#fileUpload.ServerFileName#2x.#fileUpload.ServerFileExt#" overwrite="true" width="640" height="100" />
+				<!--- Read the image --->
+				<cfimage action="read" source="#uploadDir#/#fileUpload.ServerFile#" name="uploadedImg"/>
+				
+				<!--- Check if we need to resize --->
+				<cfif uploadedImg.width GT 640>
+				
+					<!--- Resize the original image --->
+					<cfimage action="resize" source="#uploadDir#/#fileUpload.ServerFile#" destination="#uploadDir#/#fileUpload.ServerFileName#2x.#fileUpload.ServerFileExt#" overwrite="true" width="640" height="100" />
+				
+				<cfelse>
+					
+					<!--- Just rename the uploaded image --->
+					<cffile action="rename" source="#uploadDir#/#fileUpload.ServerFile#" destination="#uploadDir#/#fileUpload.ServerFileName#2x.#fileUpload.ServerFileExt#" />
+				
+				</cfif>
 				
 				<!--- Create non-retina version --->
-				<cfimage action="resize" source="#uploadDir#/#fileUpload.ServerFile#" destination="#uploadDir#/#fileUpload.ServerFile#" overwrite="true" width="320" height="50" />
+				<cfimage action="resize" source="#uploadDir#/#fileUpload.ServerFileName#2x.#fileUpload.ServerFileExt#" destination="#uploadDir#/#fileUpload.ServerFile#" overwrite="true" width="320" height="50" />
 
 			</cfif>
 			
