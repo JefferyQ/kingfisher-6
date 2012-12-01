@@ -1,7 +1,9 @@
-<!--- Get a list of cities --->
+<!--- Get the city --->
 <cfquery name="rsGetCities" datasource="#Application.DataSource#">
-	SELECT * FROM cities ORDER BY city_name ASC;
+	SELECT * FROM cities WHERE cID = #FORM.cID# ASC;
 </cfquery>
+
+<cfdump var="#rsGetCities#"><cfabort>
 
 <!doctype html>
 <html>
