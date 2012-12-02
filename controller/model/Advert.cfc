@@ -146,7 +146,7 @@
 					</cfif>
 					url = <cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.url#">, 
 					startDate = <cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.startDate#">, 
-					endDate = <cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.endDate#">, 
+					endDate = <cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.endDate#">
 				WHERE adID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.adID#">;
 			</cfquery>
 			
