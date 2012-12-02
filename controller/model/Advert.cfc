@@ -171,6 +171,7 @@
 		<cfargument name="cID" type="numeric" required="no">
 		<cfargument name="catID" type="numeric" required="no">
 		<cfargument name="adID" type="numeric" required="no">
+		<cfargument name="blnDate" type="any" required="no">
 		
 		<cfset rtn = StructNew()>
 		
@@ -179,15 +180,18 @@
 			SELECT * FROM adverts
 				LEFT JOIN categories ON categories.catID = adverts.catID
 			WHERE 
-				startDate <= <cfqueryparam cfsqltype="cf_sql_varchar" value="#DateFormat(now(), 'yyyy-mm-dd')#">
-			AND
-				endDate >= <cfqueryparam cfsqltype="cf_sql_varchar" value="#DateFormat(now(), 'yyyy-mm-dd')#">
 			<cfif IsDefined("ARGUMENTS.cID") AND IsNumeric(ARGUMENTS.cID)>
-				AND cID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.cID#">
+				cID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.cID#">
 			</cfif>
 			<cfif IsDefined("ARGUMENTS.adID") AND IsNumeric(ARGUMENTS.adID)>
-				AND adID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.adID#">
+				adID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.adID#">
 			</cfif>
+			
+			<cfif Not(IsDefined("ARGUMENTS.blnDate"))>
+				AND startDate <= <cfqueryparam cfsqltype="cf_sql_varchar" value="#DateFormat(now(), 'yyyy-mm-dd')#">
+				AND endDate >= <cfqueryparam cfsqltype="cf_sql_varchar" value="#DateFormat(now(), 'yyyy-mm-dd')#">
+			</cfif>
+				
 			<cfif IsDefined("ARGUMENTS.catID")>
 				<cfif ARGUMENTS.catID EQ 0>
 					AND adverts.catID IS NULL

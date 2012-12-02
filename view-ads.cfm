@@ -13,6 +13,7 @@
 	data = StructNew();
 	data.ReturnFormat = 'struct';
 	data.cmd = 'ViewAds';
+	data.blnDate = 'true';
 	data.cID = SESSION.cID;
 	obj = CreateObject("component","controller.index").init(data);
 </cfscript>
