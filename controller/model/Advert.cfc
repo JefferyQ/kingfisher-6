@@ -49,12 +49,14 @@
 		
 			<!--- Add the advert --->
 			<cfquery name="rsAddAdvert" datasource="#Application.DataSource#">
-				INSERT INTO adverts (cID, catID, img, imgRetina, url) VALUES (
+				INSERT INTO adverts (cID, catID, img, imgRetina, url, startDate, endDate) VALUES (
 					<cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.cID#">, 
 					<cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.catID#">, 
 					<cfqueryparam cfsqltype="cf_sql_varchar" value="#fileUpload.ServerFile#">, 
 					<cfqueryparam cfsqltype="cf_sql_varchar" value="#fileUpload.ServerFileName#2x.#fileUpload.ServerFileExt#">, 
-					<cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.url#">);
+					<cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.url#">, 
+					<cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.startDate#">, 
+					<cfqueryparam cfsqltype="cf_sql_varchar" value="#ARGUMENTS.endDate#">);
 			</cfquery>
 			
 			<cfset rtn.result = true>
@@ -175,11 +177,14 @@
 			SELECT * FROM adverts
 				LEFT JOIN categories ON categories.catID = adverts.catID
 			WHERE 
+				startDate <= <cfqueryparam cfsqltype="cf_sql_varchar" value="#DateFormat(now(), 'yyyy-mm-dd')#">
+			AND
+				endDate >= <cfqueryparam cfsqltype="cf_sql_varchar" value="#DateFormat(now(), 'yyyy-mm-dd')#">
 			<cfif IsDefined("ARGUMENTS.cID") AND IsNumeric(ARGUMENTS.cID)>
-				cID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.cID#">
+				AND cID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.cID#">
 			</cfif>
 			<cfif IsDefined("ARGUMENTS.adID") AND IsNumeric(ARGUMENTS.adID)>
-				adID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.adID#">
+				AND adID = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.adID#">
 			</cfif>
 			<cfif IsDefined("ARGUMENTS.catID")>
 				<cfif ARGUMENTS.catID EQ 0>

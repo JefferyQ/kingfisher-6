@@ -62,6 +62,14 @@
 					<textarea name="url" class="textInput textArea darkPink " required placeholder="Advert URL (the link to load when clicked)"></textarea>
 				</p>
 				<p>
+					<label>Start Date:</label><br/>
+					<input type="date" name="startDate" class="textInput darkPink " required />
+				</p>
+				<p>
+					<label>End Date:</label><br/>
+					<input type="date" name="endDate" class="textInput darkPink " required />
+				</p>
+				<p>
 					<input type="hidden" name="APIToken" value="raiseatree12" />
 					<input type="hidden" name="cmd" value="AddAd" />
 					<input type="hidden" name="cID" value="#SESSION.cID#" />

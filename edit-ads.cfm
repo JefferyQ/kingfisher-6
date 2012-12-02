@@ -75,6 +75,22 @@
 					<textarea name="url" class="textInput textArea darkPink " required placeholder="Advert URL (the link to load when clicked)">#ad.data.url#</textarea>
 				</p>
 				<p>
+					<label>Start Date:</label><br/>
+					<cfif IsDefined("ad.data.startDate") AND ad.data.startDate GT ''>
+						<input type="date" name="startDate" class="textInput darkPink " required value="#DateFormat(ad.data.startDate, 'yyyy-mm-dd')#" />
+					<cfelse>
+						<input type="date" name="startDate" class="textInput darkPink " required />
+					</cfif>
+				</p>
+				<p>
+					<label>End Date:</label><br/>
+					<cfif IsDefined("ad.data.endDate") AND ad.data.endDate GT ''>
+						<input type="date" name="endDate" class="textInput darkPink " required value="#DateFormat(ad.data.endDate, 'yyyy-mm-dd')#" />
+					<cfelse>
+						<input type="date" name="endDate" class="textInput darkPink " required />
+					</cfif>
+				</p>
+				<p>
 					<input type="hidden" name="APIToken" value="raiseatree12" />
 					<input type="hidden" name="cmd" value="EditAd" />
 					<input type="hidden" name="adID" value="#ad.data.adID#" />

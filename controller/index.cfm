@@ -13,7 +13,7 @@
 	data.ReturnFormat = URL.ReturnFormat;
 	data.cmd = URL.cmd;
 	//data.eID = URL.eID;
-	data.catID = URL.catID;
+	//data.catID = URL.catID;
 	//data.offerID = URL.offerID;
 	//data.uuid = URL.uuid;
 	//data.locale = URL.locale;
