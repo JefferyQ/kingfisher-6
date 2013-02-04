@@ -220,7 +220,7 @@
 		<cfelse>
 			
 			<cfif right(rsGetAds.img,3) EQ 'gif'>
-				<!---<cfif findNoCase('kingfishercontent.co.uk', CGI.HTTP_HOST) EQ 0>--->
+				<cfif findNoCase('kingfishercontent.co.uk', CGI.HTTP_HOST) EQ 0>
 					
 					<!--- Write the regular image --->
 					<cffile action="write" 
@@ -234,14 +234,21 @@
 						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.imgRetina#'/></body></html>" 
 						nameconflict="overwrite" />
 				
-				<!---<cfelse>
+				<cfelse>
 				
+					<!--- Write the regular image --->
 					<cffile action="write" 
-						file="#CGI.HTTP_HOST#/public/images/adverts/html/#rsGetAds.adID#.htm" 
+						file="#ExpandPath('../kingfishercontent.co.uk/public/images/adverts/html')#/#rsGetAds.adID#.htm" 
 						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.img#'/></body></html>" 
 						nameconflict="overwrite" />
+						
+					<!--- Write the retina image --->
+					<cffile action="write" 
+						file="#ExpandPath('../kingfishercontent.co.uk/public/images/adverts/html')#/#rsGetAds.adID#.htm" 
+						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.imgRetina#'/></body></html>" 
+						nameconflict="overwrite" />
 				
-				</cfif>--->
+				</cfif>
 						
 				<cfset QuerySetCell(rsGetAds, 'img', 'html/#rsGetAds.adID#.htm', 1)>
 				<cfset QuerySetCell(rsGetAds, 'imgRetina', 'html/#rsGetAds.adID#2x.htm', 1)>
