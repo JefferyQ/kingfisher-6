@@ -224,13 +224,13 @@
 					
 					<!--- Write the regular image --->
 					<cffile action="write" 
-						file="#ExpandPath('../../kingfisher/public/images/adverts/html')#/#rsGetAds.adID#.htm" 
+						file="#ExpandPath('../../kingfisher/public/images/adverts')#/#rsGetAds.adID#.htm" 
 						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.img#'/></body></html>" 
 						nameconflict="overwrite" />
 						
 					<!--- Write the retina image --->
 					<cffile action="write" 
-						file="#ExpandPath('../../kingfisher/public/images/adverts/html')#/#rsGetAds.adID#.htm" 
+						file="#ExpandPath('../../kingfisher/public/images/adverts')#/#rsGetAds.adID#.htm" 
 						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.imgRetina#'/></body></html>" 
 						nameconflict="overwrite" />
 				
@@ -238,13 +238,13 @@
 				
 					<!--- Write the regular image --->
 					<cffile action="write" 
-						file="#ExpandPath('../public/images/adverts/html')#/#rsGetAds.adID#.htm" 
+						file="#ExpandPath('../public/images/adverts')#/#rsGetAds.adID#.htm" 
 						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.img#'/></body></html>" 
 						nameconflict="overwrite" />
 						
 					<!--- Write the retina image --->
 					<cffile action="write" 
-						file="#ExpandPath('../public/images/adverts/html')#/#rsGetAds.adID#.htm" 
+						file="#ExpandPath('../public/images/adverts')#/#rsGetAds.adID#.htm" 
 						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.imgRetina#'/></body></html>" 
 						nameconflict="overwrite" />
 				
