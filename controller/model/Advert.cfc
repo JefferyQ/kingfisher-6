@@ -207,6 +207,7 @@
 		
 		<!--- Check if we found at least one record otherwise fill the query with the placeholder --->
 		<cfif ARGUMENTS.ReturnFormat EQ 'JSON' AND rsGetAds.RecordCount EQ 0>
+			
 			<cfset QueryAddRow(rsGetAds, 1)>
 			<cfset QuerySetCell(rsGetAds, 'adID', 'xxx', 1)>
 			<cfset QuerySetCell(rsGetAds, 'cID', 'xxx', 1)>
@@ -215,6 +216,38 @@
 			<cfset QuerySetCell(rsGetAds, 'img', 'ad-placeholder.png', 1)>
 			<cfset QuerySetCell(rsGetAds, 'imgRetina', 'ad-placeholder2x.png', 1)>
 			<cfset QuerySetCell(rsGetAds, 'url', 'http://www.kingfishermedia.co.uk', 1)>
+		
+		<cfelse>
+			
+			<cfif right(rsGetAds.img,3) EQ 'gif'>
+				<!---<cfif findNoCase('kingfishercontent.co.uk', CGI.HTTP_HOST) EQ 0>--->
+					
+					<!--- Write the regular image --->
+					<cffile action="write" 
+						file="#ExpandPath('../../kingfisher/public/images/adverts/html')#/#rsGetAds.adID#.htm" 
+						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.img#'/></body></html>" 
+						nameconflict="overwrite" />
+						
+					<!--- Write the retina image --->
+					<cffile action="write" 
+						file="#ExpandPath('../../kingfisher/public/images/adverts/html')#/#rsGetAds.adID#.htm" 
+						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.imgRetina#'/></body></html>" 
+						nameconflict="overwrite" />
+				
+				<!---<cfelse>
+				
+					<cffile action="write" 
+						file="#CGI.HTTP_HOST#/public/images/adverts/html/#rsGetAds.adID#.htm" 
+						output="<html><body style='margin: 0px'><img src='http://www.kingfishercontent.co.uk/public/images/adverts/#rsGetAds.img#'/></body></html>" 
+						nameconflict="overwrite" />
+				
+				</cfif>--->
+						
+				<cfset QuerySetCell(rsGetAds, 'img', 'html/#rsGetAds.adID#.htm', 1)>
+				<cfset QuerySetCell(rsGetAds, 'imgRetina', 'html/#rsGetAds.adID#2x.htm', 1)>
+				
+			</cfif>
+			
 		</cfif>
 		
 		<cfset rtn.data = rsGetAds>
