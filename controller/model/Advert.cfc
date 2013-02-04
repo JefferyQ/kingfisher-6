@@ -219,7 +219,7 @@
 		
 		<cfelse>
 			
-			<cfif right(rsGetAds.img,3) EQ 'gif'>
+			<!---<cfif right(rsGetAds.img,3) EQ 'gif'>
 				<cfif findNoCase('kingfishercontent.co.uk', CGI.HTTP_HOST) EQ 0>
 					
 					<!--- Write the regular image --->
@@ -253,7 +253,7 @@
 				<cfset QuerySetCell(rsGetAds, 'img', 'html/#rsGetAds.adID#.htm', 1)>
 				<cfset QuerySetCell(rsGetAds, 'imgRetina', 'html/#rsGetAds.adID#2x.htm', 1)>
 				
-			</cfif>
+			</cfif>--->
 			
 		</cfif>
 		
