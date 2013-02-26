@@ -20,21 +20,12 @@
 		<cfscript>
 			// Set up the data source
 			Application.DataSource = 'kingfisher_admin';
-			//Application.DataSource = 'touchtap_kingfi';
 			
 			// Detect the site root 
 			if (CGI.server_name EQ 'localhost') 
 					Application.SiteRoot = 'http://localhost:' & CGI.SERVER_PORT & '/kingfisher';
 			else 
 				Application.SiteRoot = 'tbc';
-			
-			// Mail Variables (TBC)
-			Application.MailTo = 'andy@raiseatree.co.uk';
-			Application.MailFrom = 'Raise A Tree <hello@raiseatree.co.uk>';
-			Application.MailServer = 'smtp.gmail.com';
-			Application.MailPort = '465';
-			Application.MailUser = 'hello@raiseatree.co.uk';
-			Application.MailPwd = 'manutd88';
 		</cfscript>
 			
 		<cfreturn true>
@@ -96,9 +87,6 @@
 				<cfelse>
 					<cfset SESSION.error = rtn.message>
 				</cfif>
-			<cfelse>
-				<!--- TODO - Handle this properly --->
-				<!---<cfoutput>ERROR!</cfoutput>--->
 			</cfif>
 			
 		</cfif>
@@ -108,7 +96,8 @@
 					(FindNoCase('index.cfm',CGI.SCRIPT_NAME) EQ 0) AND
 					(FindNoCase('client-entry.cfm',CGI.SCRIPT_NAME) EQ 0) AND
 					(FindNoCase('client-thanks.cfm',CGI.SCRIPT_NAME) EQ 0) AND
-					(FindNoCase('approve.cfm',CGI.SCRIPT_NAME) EQ 0)>
+					(FindNoCase('approve.cfm',CGI.SCRIPT_NAME) EQ 0) AND
+					(FindNoCase('test.cfm',CGI.SCRIPT_NAME) EQ 0)>
 				<cflocation addtoken="no" url="index.cfm">
 				<cfabort> 
 			</cfif>
@@ -122,52 +111,7 @@
 		
 		<cfoutput>Can't find page</cfoutput>
 		
-		<!---<cflocation addtoken="no" url="index.cfm?targetPage=#ARGUMENTS.targetPage#">--->
-		
 		<cfreturn true>
 	</cffunction>
 
-	<!--- Runs on error --->
-	<!---<cffunction name="onError" returnType="void" output="yes">
-		<cfargument name="exception" required="true">
-		<cfargument name="eventname" type="string" required="true">
-		
-		<cfif #CGI.SERVER_NAME# EQ 'localhost'>
-			<cfdump var="#ARGUMENTS.exception#">
-		<cfelse>
-			<!---<cfif IsDefined("SESSION.uID") AND IsNumeric(SESSION.uID)>
-				<cfinvoke component="includes.cfc.user" method="getUserDetails" returnvariable="rsGetUser">
-					<cfinvokeargument name="uID" value="#SESSION.uID#">
-				</cfinvoke>
-			</cfif>
-			
-			<!--- Email the error through --->
-			<cfmail to="#Application.MailTo#" 
-				from="#Application.MailFrom#" 
-				subject="Error on Raise A Tree Utopian" 
-				server="#Application.MailServer#" 
-				port="465" 
-				useSSL="true"
-				username="#Application.MailUser#" 
-				password="#Application.MailPwd#" 
-				type="html">
-					<cfoutput><p><strong>Page:</strong> #Application.SiteRoot#/#GetFileFromPath(GetTemplatePath())#</p></cfoutput>
-					<cfoutput><p><strong>Message:</strong> #ARGUMENTS.exception.message#</p></cfoutput>
-					<cfif IsDefined("ARGUMENTS.exception.sql")>
-						<cfoutput><p><strong>SQL:</strong> #ARGUMENTS.exception.message#</p></cfoutput>
-					</cfif>
-					<cfoutput><p><strong>Stack Trace:</strong> #ARGUMENTS.exception.stacktrace#</p></cfoutput>
-					<cfif IsDefined("SESSION.uID") AND IsNumeric(SESSION.uID)>
-						<cfoutput><p><strong>uID:</strong> #rsGetUser.uID#</p></cfoutput>
-						<cfoutput><p><strong>Username:</strong> #rsGetUser.studentLogin#</p></cfoutput>
-						<!---<cfoutput><p><strong>Password:</strong> #decrypt(rsGetUser.password, Application.PasswordKey)#</p></cfoutput>--->
-					<cfelse>
-						<p>User not defined</p>
-					</cfif>
-			</cfmail>
-				
-			<!--- Forward the user --->
-			<cflocation url="#Application.SiteRoot#/error.cfm" addtoken="no">--->
-		</cfif>
-	</cffunction>--->
 </cfcomponent>
